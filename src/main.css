@@ -66,8 +66,33 @@ p, li {
 
 #score {
     float:right;
-    margin: 2px 20px 0 0;
+    margin: -20px 40px 0 0;
     font-family: Oxygen;
-    font-size: 25px;
+    font-size: 20px;
 
+}
+
+#score-name {
+    float:top;
+    line-height: 50%
+}
+
+#score-percent{
+    float:bottom;
+    font-size: 30px;
+        line-height: 50%
+
+}
+
+.one-hundred{
+    color:green;
+}
+.sixty-six{
+    color:yellow;
+}
+.thirty-three{
+    color:orange;
+}
+.zero{
+    color:red;
 }

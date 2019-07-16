@@ -5,11 +5,17 @@ const originSection = document.getElementById('origin');
 const habitSection = document.getElementById('habits');
 const funFactsSection = document.getElementById('fun-facts');
 const score = document.getElementById('score');
+const scoreName = document.getElementById('name');
+const scorePercentDisplay = document.getElementById('score-percent');
 
 const catEmoji = document.getElementById('catemoji');
 const markOne = document.getElementById('mark-1');
 const markTwo = document.getElementById('mark-2');
 const markThree = document.getElementById('mark-3');
+
+quizButton.onclick = function() {
+    toggleSections('add');
+};
 
 function toggleSections(action) { //hides the story to make the quiz more difficult, then calls the main quiz function
     let hidden;
@@ -22,6 +28,7 @@ function toggleSections(action) { //hides the story to make the quiz more diffic
         habitSection.classList.add('none');
         funFactsSection.classList.add('none');
         catEmoji.classList.remove('none');
+        score.classList.add('none');
         
     } else if(action === 'remove') {
         hidden = false;
@@ -29,7 +36,9 @@ function toggleSections(action) { //hides the story to make the quiz more diffic
         habitSection.classList.remove('none');
         funFactsSection.classList.remove('none');
         catEmoji.classList.add('none');
+        score.classList.remove('none');
 
+        
     } else {
         return;
     }
@@ -69,6 +78,7 @@ function playQuiz(){
     }
     
     let secondAnswerMade = false;
+
     while(!secondAnswerMade){
         const secondAnswer = prompt('Question The Second: Both the cats howl for their treats at the same time every night. (Y/N)');
         markTwo.classList.remove('none');
@@ -86,6 +96,7 @@ function playQuiz(){
     }
     
     let thirdAnswerMade = false;
+
     while(!thirdAnswerMade){
         const thirdAnswer = prompt('Question The Third: Alice has terrible and disgusting consequences for eating normal cat food. (Y/N)');
         markThree.classList.remove('none');
@@ -105,12 +116,27 @@ function playQuiz(){
 
     alert(`Thank you, ${name}, for listening to me about my cats. Your final score is ${correctAnswers}/3.`);
 
-    score.textContent = `${name}'s final score: ${correctAnswers}/3`;
+    const scorePercentage = Math.floor((correctAnswers / 3) * 100); //source: Luke
+    
+    scoreName.textContent = name;
+    scorePercentDisplay.textContent = `${scorePercentage}%`;
+    
+    switch(scorePercentage){ // source: MDN for switch
+        case 100:
+            scorePercentDisplay.classList.add('one-hundred');
+            break;
+        case 66:
+            scorePercentDisplay.classList.add('sixty-six');
+            break;
+        case 33:
+            scorePercentDisplay.classList.add('thirty-three');
+            break;
+        case 0:
+            scorePercentDisplay.classList.add('zero');
+            break;
+
+    }
     
     toggleSections('remove');
 }
 
-
-quizButton.onclick = function() {
-    toggleSections('add');
-};
