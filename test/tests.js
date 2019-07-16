@@ -5,12 +5,12 @@ const test = QUnit.test;
 test('yes is true', function(assert) {
     //Arrange
     // Set up your parameters and 
-    const text = 'yes'
+    const text = 'yes';
     const expected = true;
 
     //Act 
     // Call the function you're testing and set the result to a const
-    const result = isYes(text)
+    const result = isYes(text);
 
     //Assert
     assert.equal(result, expected);
