@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="src/main.css" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Oxygen|Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
         <title>About me</title>
     </head>
     <body>
@@ -14,15 +16,15 @@
             <p><em>(Yes, I made this about my cats. I'm sorry.)</em></p>
         </header>
         <main>
-            <section id="right-hand">
-                <img src='assets/cats.jpg' width="100%">
+            <div id="right-hand">
+                <img src='assets/cats.jpg' id='cats' alt='Cats'>
                 <p class="caption">Pictured: Alice (left) and Willetta (right)</p>
                 <button id='quiz-button'>Take the quiz!</button>
-                <section id="score" class="none">
+                <div id="score" class="none">
                     <div id="score-name"><p><span id="name"></span>'s final score:</p></div>
                     <div id="score-percent">100%</div>
-                </section>
-            </section>
+                </div>
+            </div>
             
             <section id="origin">
                 <h2>Origin Story</h2>
@@ -34,9 +36,9 @@
                     weirdos in NE Portland.
                 </p>
             </section>
-            <img id="mark-1" class="none">
+            <img id="mark-1" class="none" src="null" alt="">
             
-            <img id="catemoji" src="assets/catemoji.png" class="none">
+            <img id="catemoji" src="assets/catemoji.png" class="none" alt="catemoji">
         
             <section id="habits">
                 <h2>Habits</h2>
@@ -54,7 +56,7 @@
             attention.
         </p>
     </section>
-    <img id="mark-2" class="none">
+    <img id="mark-2" class="none" src="null" alt="">
     
     
         <section id="fun-facts">
@@ -74,7 +76,7 @@
                 </li>   
             </ul>
         </section>
-        <img id="mark-3" class="none">
+        <img id="mark-3" class="none" src="null" alt="">
     </main>
     
     <script type="module" src="src/app.js"></script>

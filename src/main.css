@@ -7,7 +7,7 @@ h1 {
     font-family: Oxygen, sans-serif;
     font-size: 55px;
     line-height: 0%;
-    color:#321D14;
+    color:#321D14;  
 }
 
 h2 {
@@ -95,4 +95,8 @@ p, li {
 }
 .zero{
     color:red;
+}
+
+#cats{
+    width:100%;
 }
