@@ -7,3 +7,5 @@ function compareNumbers(guess, correctNumber){
         return 0;
     }
 }
+
+export default compareNumbers;
