@@ -50,41 +50,62 @@ function playQuiz(){
     alert('Very well!');
 
     let correctAnswers = 0;
-
-    const firstAnswer = prompt('Question The First: Alice and Willetta were both born in Washington county. (Y/N)');
-    markOne.classList.remove('none');
     
-    if(!isYes(firstAnswer)) {
-        correctAnswers++;
-        markOne.src = '../assets/check.png';
-    } else {
-        markOne.src = '../assets/no.png';
+    let firstAnswerMade = false;
+
+    while(!firstAnswerMade){
+        const firstAnswer = prompt('Question The First: Alice and Willetta were both born in Washington county. (Y/N)');
+        markOne.classList.remove('none');
+        if(isYes(firstAnswer) === false) {
+            correctAnswers++;
+            firstAnswerMade = true;
+            markOne.src = '../assets/check.png';
+        } else if(isYes(firstAnswer) === true) {
+            markOne.src = '../assets/no.png';
+            firstAnswerMade = true;
+        } else {
+            alert('Please answer yes or no!');
+        }
     }
     
-    const secondAnswer = prompt('Question The Second: Both the cats howl for their treats at the same time every night. (Y/N)');
-    markTwo.classList.remove('none');
+    let secondAnswerMade = false;
+    while(!secondAnswerMade){
+        const secondAnswer = prompt('Question The Second: Both the cats howl for their treats at the same time every night. (Y/N)');
+        markTwo.classList.remove('none');
     
-    if(isYes(secondAnswer)) {
-        correctAnswers++;
-        markTwo.src = '../assets/check.png';
-    } else {
-        markTwo.src = '../assets/no.png';
-    }   
+        if(isYes(secondAnswer) === true) {
+            correctAnswers++;
+            markTwo.src = '../assets/check.png';
+            secondAnswerMade = true;
+        } else if(isYes(secondAnswer) === false){
+            markTwo.src = '../assets/no.png';
+            secondAnswerMade = true;
+        } else {
+            alert('Please answer yes or no!');
+        }
+    }
     
-    const thirdAnswer = prompt('Question The Third: Alice has terrible and disgusting consequences for eating normal cat food. (Y/N)');
-    markThree.classList.remove('none');
-    
-    if(!isYes(thirdAnswer)){
-        correctAnswers++;
-        markThree.src = '../assets/check.png';
-    } else {
-        markThree.src = '../assets/no.png';
-
+    let thirdAnswerMade = false;
+    while(!thirdAnswerMade){
+        const thirdAnswer = prompt('Question The Third: Alice has terrible and disgusting consequences for eating normal cat food. (Y/N)');
+        markThree.classList.remove('none');
+        
+        if(isYes(thirdAnswer) === false){
+            correctAnswers++;
+            markThree.src = '../assets/check.png';
+            thirdAnswerMade = true;
+        } else if(isYes(thirdAnswer) === true) {
+            markThree.src = '../assets/no.png';
+            thirdAnswerMade = true;
+            
+        } else {
+            alert('Please answer yes or no!');
+        }
     }
 
     alert(`Thank you, ${name}, for listening to me about my cats. Your final score is ${correctAnswers}/3.`);
 
-    score.textContent = `${name}'s final score: ${correctAnswers}/3`
+    score.textContent = `${name}'s final score: ${correctAnswers}/3`;
     
     toggleSections('remove');
 }

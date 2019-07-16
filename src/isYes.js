@@ -2,8 +2,10 @@ function isYes(text){
     text = text.toLowerCase();
     if(text === 'yes' || text === 'y'){
         return true;
-    } else {
+    } else if(text === 'no' || text === 'n') {
         return false;
+    } else {
+        return 'error';
     }
 }
 
