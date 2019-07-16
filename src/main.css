@@ -8,3 +8,15 @@ h2 {
     font-size: 30px;
 }
 
+p, li {
+    font-family: Railway, sans-serif;
+}
+
+section {
+    width: 50%;
+}
+
+.caption {
+    font-size: 12px;
+    font-style: italic;
+}
