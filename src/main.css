@@ -7,14 +7,14 @@ h1 {
     font-family: Oxygen, sans-serif;
     font-size: 55px;
     line-height: 0%;
-    color:#321D14;  
+    color: #321D14;  
 }
 
 h2 {
     font-family: Oxygen, sans-serif;
     font-size: 30px;
     line-height: 0%;
-    color:#AC4C36;
+    color: #AC4C36;
 
 }
 
@@ -25,25 +25,25 @@ p, li {
 .caption {
     font-size: 12px;
     font-style: italic;
-    line-height:25%;
-    margin:10px 0 50px 0;
+    line-height: 25%;
+    margin: 10px 0 50px 0;
 }
 
 
 #origin, #habits, #fun-facts {
     width: 60%;
-    float:left;
+    float: left;
 }
 
 #right-hand {
     width: 30%;
-    float:right;
+    float: right;
 }
 
 #quiz-button {
     height: 40px;
     width: 120px;
-    font-size:1EM;
+    font-size: 1EM;
 }
 .none {
     display: none;
@@ -59,7 +59,7 @@ p, li {
 #mark-1, #mark-2, #mark-3 {
     width: 80px;
     height: 80px;
-    float:right;
+    float: right;
     margin: 40px 20px;
 
 }
@@ -69,34 +69,34 @@ p, li {
     margin: -20px 40px 0 0;
     font-family: Oxygen;
     font-size: 20px;
-
+    width: 50%;
 }
 
 #score-name {
     float:top;
-    line-height: 50%
+    line-height: 100%;
 }
 
 #score-percent{
-    float:bottom;
+    float: bottom;
     font-size: 30px;
-        line-height: 50%
-
+    line-height: 0%;
+    margin-left: 25%;
 }
 
 .one-hundred{
-    color:green;
+    color: green;
 }
 .sixty-six{
-    color:yellow;
+    color: goldenrod;
 }
 .thirty-three{
-    color:orange;
+    color: orangered;
 }
 .zero{
-    color:red;
+    color: black;
 }
 
 #cats{
-    width:100%;
+    width: 100%;
 }

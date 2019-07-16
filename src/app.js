@@ -1,5 +1,6 @@
 import isYes from './isYes.js';
 
+//HTML elements
 const quizButton = document.getElementById('quiz-button');
 const originSection = document.getElementById('origin');
 const habitSection = document.getElementById('habits');
@@ -8,16 +9,19 @@ const score = document.getElementById('score');
 const scoreName = document.getElementById('name');
 const scorePercentDisplay = document.getElementById('score-percent');
 
+//Pictures
 const catEmoji = document.getElementById('catemoji');
 const markOne = document.getElementById('mark-1');
 const markTwo = document.getElementById('mark-2');
 const markThree = document.getElementById('mark-3');
 
+//Button function call
 quizButton.onclick = function() {
     toggleSections('add');
 };
 
-function toggleSections(action) { //hides the story to make the quiz more difficult, then calls the main quiz function
+//Hides elements and calls the quiz function OR unhides elements once the quiz is finished
+function toggleSections(action) {
     let hidden;
     if(action === 'add') {
         hidden = true;
@@ -43,10 +47,12 @@ function toggleSections(action) { //hides the story to make the quiz more diffic
         return;
     }
     if(hidden) {
-        setTimeout(() => { playQuiz(); }, 1000); //I spent way too much time at home trying to get this to work. Lesson learned: never use an alert if well-timed code execution is needed.
+        setTimeout(() => { playQuiz(); }, 1000); // source: MDN docs on setTimeout
+        //I spent way too much time at home trying to get this to work. Lesson learned: never use an alert if well-timed code execution is needed.
     }
 }
 
+//Quiz function
 function playQuiz(){
     const name = prompt("What's yer name?");
     
@@ -56,13 +62,13 @@ function playQuiz(){
         return;
     }
 
-    alert('Very well!');
+    alert('Very well! Let the games begin!');
 
     let correctAnswers = 0;
     
     let firstAnswerMade = false;
 
-    while(!firstAnswerMade){
+    while(!firstAnswerMade){ //Source: MDN documentation on while loops
         const firstAnswer = prompt('Question The First: Alice and Willetta were both born in Washington county. (Y/N)');
         markOne.classList.remove('none');
         if(isYes(firstAnswer) === false) {
@@ -113,6 +119,8 @@ function playQuiz(){
             alert('Please answer yes or no!');
         }
     }
+
+    //Ending logic to calculate / display score, and unhide all elements.
 
     alert(`Thank you, ${name}, for listening to me about my cats. Your final score is ${correctAnswers}/3.`);
 
