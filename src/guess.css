@@ -1,12 +1,46 @@
+body {
+    margin:30px 100px;
+}
+
+.center {
+    text-align: center;
+}
+
+.elim{
+    background-color:darkgrey;
+    color:grey;
+}
+
+.pos{
+    background-color:greenyellow;
+}
+
+.win {
+    background-color:pink;
+}
+
+#msg {
+    display:inline-block;
+    width:120px;
+    font-size: 25px;
+    left: -15px;
+    position: relative;
+}
+
+.row-container {
+    margin-top:40px;
+}
+
 .row-container div {
     border: 1px solid black;
     height: 42px;
     width: 50px;
-    margin: 0 1px;
-    font-size: 35px;
     text-align: center;
     display: inline-block;
     padding:8px 0;
+    font-size: 35px;
+    margin: 0 1px;
+
 }
 
 #row{
@@ -24,4 +58,5 @@
     width: 50px;
     position:fixed;
     margin:0 0 0 2px;
+    
 }

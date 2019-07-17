@@ -12,39 +12,41 @@
         <main>
             <section>
                 <header>
-                    <h1>Holy crap it's a freakin' guessing game!</h1>
+                    <h1 class="center">Holy crap it's a freakin' guessing game!</h1>
                 </header>
             </section>
             <section id="game">
                 <div id="pointer-row">
-                    <img id="pointer" src="assets/arrow_down_1.png" width="">
+                    <div id="pointer">
+                        <span id="msg"></span>
+                        <img src="assets/arrow_down_1.png" width="50px"></div>
                 </div>
                 <div id="row" class="row-container">
-                    <div id="1">1</div>
-                    <div id="2">2</div>
-                    <div id="3">3</div>
-                    <div id="4">4</div>
-                    <div id="5">5</div>
-                    <div id="6">6</div>
-                    <div id="7">7</div>
-                    <div id="8">8</div>
-                    <div id="9">9</div>
-                    <div id="10">10</div>
-                    <div id="11">11</div>
-                    <div id="12">12</div>
-                    <div id="13">13</div>
-                    <div id="14">14</div>
-                    <div id="15">15</div>
-                    <div id="16">16</div>
-                    <div id="17">17</div>
-                    <div id="18">18</div>
-                    <div id="19">19</div>
-                    <div id="20">20</div>
+                    <div class="number pos" id="1">1</div>
+                    <div class="number pos" id="2">2</div>
+                    <div class="number pos" id="3">3</div>
+                    <div class="number pos" id="4">4</div>
+                    <div class="number pos" id="5">5</div>
+                    <div class="number pos" id="6">6</div>
+                    <div class="number pos" id="7">7</div>
+                    <div class="number pos" id="8">8</div>
+                    <div class="number pos" id="9">9</div>
+                    <div class="number pos" id="10">10</div>
+                    <div class="number pos" id="11">11</div>
+                    <div class="number pos" id="12">12</div>
+                    <div class="number pos" id="13">13</div>
+                    <div class="number pos" id="14">14</div>
+                    <div class="number pos" id="15">15</div>
+                    <div class="number pos" id="16">16</div>
+                    <div class="number pos" id="17">17</div>
+                    <div class="number pos" id="18">18</div>
+                    <div class="number pos" id="19">19</div>
+                    <div class="number pos" id="20">20</div>
                 </div>
             </section>
             <section id="controls">
 
-                <input type="number" id="number" min=1 max=20>
+                <input type="number" id="number" min=1 max=20 value=1>
                 <button id="submit">Check number</button>
 
             </section>
