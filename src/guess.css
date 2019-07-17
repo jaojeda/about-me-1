@@ -76,3 +76,7 @@ body {
     margin: 0 5px;
     font-size:20px;
 }
+
+#guesses-left {
+    float:right;
+}
