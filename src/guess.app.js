@@ -30,8 +30,6 @@ submitButton.addEventListener('click', () => {
 });
 
 function movePointer(num) {
-
-    let pointerPosition = 2;
     if(num === 1) {
         pointer.style.margin = '0 0 0 2px';
     } else {
