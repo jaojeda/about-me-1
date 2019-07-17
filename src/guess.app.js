@@ -19,7 +19,13 @@ let game = true;
         if(game) {
             if(elem.id !== 'submit') {
                 numberInput.value = elem.id;
+            } else {
+                if(numberInput.value > 20 || numberInput.value < 1) {
+                    alert('Please enter a number between 1 and 20!');
+                    return;
+                }
             }
+
             const userGuess = numberInput.value;
 
 
