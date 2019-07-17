@@ -32,3 +32,8 @@ p, li {
 .none {
     display: none;
 }
+
+
+nav {
+    float:right;
+}
