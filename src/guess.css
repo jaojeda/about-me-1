@@ -1,4 +1,4 @@
-div {
+.row-container div {
     border: 1px solid black;
     height: 42px;
     width: 50px;
@@ -12,4 +12,16 @@ div {
 #row{
     height: 100px;
     width: 100%;
+}
+
+#pointer-row {
+    height: 30px;
+    width: 1156px;
+}
+
+#pointer {
+    height:50px;
+    width: 50px;
+    position:fixed;
+    margin:0 0 0 2px;
 }
