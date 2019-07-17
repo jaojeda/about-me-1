@@ -9,24 +9,26 @@ let guesses = 4;
 let targetNumber = Math.floor(Math.random() * 20) + 1; //source: verified by Luke
 
 submitButton.addEventListener('click', () => {
+    const userGuess = numberInput.value;
+    let userGuessAnswer = compareNumbers(userGuess, targetNumber);
+    movePointer(userGuess);
 
-    if(guesses > 0) {
-        let userGuess = compareNumbers(numberInput.value, targetNumber);
+    if(userGuessAnswer === 1) {
+        setTextContent('msg', 'Too high!');
+        elimRange(userGuess, 'up');
 
-        if(userGuess === 1) {
-            console.log('Too high!');
-        } else if(userGuess === -1) {
-            console.log('Too low!');
-        } else {
-            console.log('You got it!');
-        }
+    } else if(userGuessAnswer === -1) {
+        setTextContent('msg', 'Too low!');
+        elimRange(userGuess, 'down');
 
-        guesses--;
     } else {
-        console.log('Sorry! No more guesses!');
+        setTextContent('msg', 'You got it!');
+        toggleClass(userGuess, 'win', 'add');
     }
 
-    movePointer(numberInput.value);
+    guesses--;
+
+    if(guesses === 0) { submitButton.disabled = true; }
 });
 
 function movePointer(num) {
@@ -34,5 +36,32 @@ function movePointer(num) {
         pointer.style.margin = '0 0 0 2px';
     } else {
         pointer.style.margin = `0 0 0 ${2 + (58 * (num - 1))}px`;
+    }
+}
+
+function elimRange(num, dir) {
+    if(dir === 'down') {
+        for(let i = 1; i <= num; i++) {
+            toggleClass(i, 'elim', 'add');
+            toggleClass(i, 'pos', 'remove');
+        }
+    } else {
+        for(let j = num; j <= 20; j++) {
+            toggleClass(j, 'elim', 'add');
+            toggleClass(j, 'pos', 'remove');
+        }
+    }
+}
+
+function setTextContent(id, string) {
+    document.getElementById(id).textContent = string;
+}
+
+function toggleClass(id, elementClass, action) {
+
+    if(action === 'add') {
+        document.getElementById(id).classList.add(elementClass);
+    } else {
+        document.getElementById(id).classList.remove(elementClass);
     }
 }
