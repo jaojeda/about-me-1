@@ -10,48 +10,61 @@ setTextContent('guesses', `Ahh jeez you only have ${guesses} guesses left!!`);
 
 let targetNumber = Math.floor(Math.random() * 20) + 1; //source: verified by Luke
 
-submitButton.addEventListener('click', () => {
-    const userGuess = numberInput.value;
-    let userGuessAnswer = compareNumbers(userGuess, targetNumber);
-    movePointer(userGuess);
 
-    if(userGuessAnswer === 1) {
-        setTextContent('msg', 'Too high!');
-        elimRange(userGuess, 'up');
-
-    } else if(userGuessAnswer === -1) {
-        setTextContent('msg', 'Too low!');
-        elimRange(userGuess, 'down');
-
-    } else {
-        setTextContent('msg', 'You got it!');
-        toggleClass(userGuess, 'win', 'add');
-        setTextContent('guesses', 'WOWWY ZOWWY YOU DID IT!! GREAT JORB');
-        submitButton.disabled = true;
-        return;
-    }
-
-    guesses--;
-
-    switch(guesses) {
-        case 3:
-            setTextContent('guesses', `Oh no oh man you only have ${guesses} guesses left now!!!`);
-            break;
-        case 2:
-            setTextContent('guesses', `Ohhhhh god you only have ${guesses} guesses remaining! you can do it!!!!`);
-            break;
-        case 1:
-            setTextContent('guesses', `FFFFFfffhghghghg only ${guesses} guess left!!! ITS NOW OR NEVER`);
-            break;
-        case 0:
-            setTextContent('guesses', `OH NO YOU LOST. THE ANSWER WAS ${targetNumber} LMAO RIP`);
-            break;
-
-    }
+let elementsArray = document.getElementsByClassName('button');
 
 
+[...elementsArray].forEach((elem) => {
+    elem.addEventListener('click', () => {
+        if(elem.id !== 'submit') {
+            numberInput.value = elem.id;
+        }
+        const userGuess = numberInput.value;
+        movePointer(userGuess);
 
-    if(guesses === 0) { submitButton.disabled = true; }
+        let userGuessAnswer = compareNumbers(userGuess, targetNumber);
+
+        if(userGuessAnswer === 1) {
+            setTextContent('msg', 'Too high!');
+            elimRange(userGuess, 'up');
+
+        } else if(userGuessAnswer === -1) {
+            setTextContent('msg', 'Too low!');
+            elimRange(userGuess, 'down');
+
+        } else {
+            setTextContent('msg', 'You got it!');
+            toggleClass(userGuess, 'win', 'add');
+            setTextContent('guesses', 'WOWWY ZOWWY YOU DID IT!! GREAT JORB');
+            submitButton.disabled = true;
+            stopGame();
+            return;
+        }
+
+        guesses--;
+
+        switch(guesses) {
+            case 3:
+                setTextContent('guesses', `Oh no oh man you only have ${guesses} guesses left now!!!`);
+                break;
+            case 2:
+                setTextContent('guesses', `Ohhhhh god you only have ${guesses} guesses remaining! you can do it!!!!`);
+                break;
+            case 1:
+                setTextContent('guesses', `FFFFFfffhghghghg only ${guesses} guess left!!! ITS NOW OR NEVER`);
+                break;
+            case 0:
+                setTextContent('guesses', `OH NO YOU LOST. THE ANSWER WAS ${targetNumber} LMAO RIP`);
+                break;
+
+        }
+
+        if(guesses === 0) {
+            submitButton.disabled = true;
+            stopGame();
+
+        }
+    });
 });
 
 function movePointer(num) {
@@ -87,4 +100,13 @@ function toggleClass(id, elementClass, action) {
     } else {
         document.getElementById(id).classList.remove(elementClass);
     }
+}
+
+function stopGame() {
+    [...elementsArray].forEach((elem) => {
+        elem.removeAttribute('id');
+    });
+    submitButton.disabled = true;
+    numberInput.disabled = true;
+    toggleClass('pointer', 'none', 'add');
 }
