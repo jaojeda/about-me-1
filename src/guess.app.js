@@ -11,11 +11,11 @@ setTextContent('guesses', `Ahh jeez you only have ${guesses} guesses left!!`);
 let targetNumber = Math.floor(Math.random() * 20) + 1; //source: verified by Luke
 
 
-let elementsArray = document.getElementsByClassName('button');
+let elementsArray = document.getElementsByClassName('button'); //source: getElementsByClassName MDN
 
 
-[...elementsArray].forEach((elem) => {
-    elem.addEventListener('click', () => {
+[...elementsArray].forEach((elem) => { //source: spread operator idea from stackoverflow.com user madox2
+    elem.addEventListener('click', () => { //source: adding event listener to multiple objects idea from stackoverflow user Gmaiolo
         if(elem.id !== 'submit') {
             numberInput.value = elem.id;
         }
@@ -36,7 +36,6 @@ let elementsArray = document.getElementsByClassName('button');
             setTextContent('msg', 'You got it!');
             toggleClass(userGuess, 'win', 'add');
             setTextContent('guesses', 'WOWWY ZOWWY YOU DID IT!! GREAT JORB');
-            submitButton.disabled = true;
             stopGame();
             return;
         }
@@ -60,7 +59,6 @@ let elementsArray = document.getElementsByClassName('button');
         }
 
         if(guesses === 0) {
-            submitButton.disabled = true;
             stopGame();
 
         }
@@ -104,7 +102,7 @@ function toggleClass(id, elementClass, action) {
 
 function stopGame() {
     [...elementsArray].forEach((elem) => {
-        elem.removeAttribute('id');
+        elem.removeAttribute('id'); // source: removeAttribute MDN
     });
     submitButton.disabled = true;
     numberInput.disabled = true;
