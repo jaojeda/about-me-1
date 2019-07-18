@@ -15,5 +15,5 @@ function getThrow() {
     return getThrowFromNumber(rnum);
 }
 
-
+export { getThrowFromNumber };
 export default getThrow;
