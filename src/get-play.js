@@ -1,5 +1,3 @@
-import getThrow from './get-throw.js';
-
 function didPlayerWin(playerThrow, computerThrow) {
 
     let compThrowValue;
