@@ -12,7 +12,7 @@ function getThrowFromNumber(num) {
 
 function getThrow() {
     let rnum = Math.floor(Math.random() * 3);
-    return getThrowFromNumber(num);
+    return getThrowFromNumber(rnum);
 }
 
 
