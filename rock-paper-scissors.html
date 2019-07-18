@@ -14,20 +14,36 @@
                 <h1>
                     Rock, Paper, Scissors
                 </h1>
+                <p>Click on a picture below to play the game!</p>
             </header>
-            <section id="pick-one">
+            <section class="row">
                 <label>
-                    <input type="radio" name="pick">
-                    <div id="choice"><img src='assets/rock.png'></div>
+                    <input type="radio" name="pick" value="rock">
+                    <img src='assets/rock.png'>
                 </label>
                 <label>
-                    <input type="radio" name="pick">
-                    <div id="choice"><img src='assets/paper.png'></div>
+                    <input type="radio" name="pick" value="paper" checked>
+                    <img src='assets/paper.png'>
                 </label>
                 <label>
-                    <input type="radio" name="pick">
-                    <div id="choice"><img src='assets/scissors.png'></div>
+                    <input type="radio" name="pick" value="scissors">
+                    <img src='assets/scissors.png'>
                 </label>
+            </section>
+            <br>
+            <button id="submit">Shoot!</button>
+            <section class="row">
+
+                <img id="player-choice" src='assets/rock.png'>
+                <div id="vs"><h2>VS</h2></div>
+                <img id="comp-choice" src='assets/rock.png'>
+
+            </section>
+            <section class="row">
+                <p>
+                    Win:<span id="wins">0</span> Loss: <span id="loss">0</span>
+                    Tie:<span id="tie">0</span>
+                </p>
             </section>
         </main>
         <script src='src/rps.app.js' type='module'></script>
