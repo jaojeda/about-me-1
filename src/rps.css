@@ -1,0 +1,34 @@
+h1 {
+    text-align: center;
+}
+
+img {
+    width:100%;
+    height:100%;
+    margin: auto auto;  
+}
+
+#choice {
+    height: 150px;
+    width: 150px;
+    margin: 0 30px;
+    padding:15% 15%;
+    border: 3px solid transparent
+}
+
+input {
+    display: none;
+    ;
+}
+
+input:hover + #choice {
+    border: 3px solid darkcyan;
+    cursor: pointer;
+}
+
+
+#pick-one {
+    display:flex;
+    justify-content: center;
+    margin: 100px 0 0 0;
+}
