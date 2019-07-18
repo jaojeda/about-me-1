@@ -44,3 +44,11 @@ h1 + p{
 .hidden{
     display:none;
 }
+
+#result {
+    display:flex;
+    justify-content: center;
+}
+    h3 {
+        font-size:50px;
+    }
