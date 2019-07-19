@@ -11,6 +11,7 @@ main {
 h1 {
     text-align: center;
     padding-bottom: 20px;
+    width: 100%;
 }
 
 img {
@@ -56,3 +57,11 @@ h1 + p{
     h3 {
         font-size:50px;
     }
+
+nav {
+    float: right;
+    text-align: right;
+    height: 50px;
+    margin: 0 0 20px 0;
+    width: 100%;
+}
