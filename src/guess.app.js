@@ -5,49 +5,31 @@ const numberInput = document.getElementById('number');
 const pointer = document.getElementById('pointer');
 
 let guesses = 4;
+let game = true;
 
 setTextContent('guesses', `Ahh jeez you only have ${guesses} guesses left!!`);
 
 let targetNumber = Math.floor(Math.random() * 20) + 1; //source: verified by Luke
-
 let elementsArray = document.getElementsByClassName('button'); //source: getElementsByClassName MDN
 
-let game = true;
 
 [...elementsArray].forEach((elem) => { //source: spread operator idea from stackoverflow.com user madox2
     elem.addEventListener('click', () => { //source: adding event listener to multiple objects idea from stackoverflow user Gmaiolo
         if (game) {
-            
-            if(setNumber(elem, numberInput) === 'stop') {
+
+            if (setNumber(elem, numberInput) === 'stop') {
                 return;
-            };
+            }
 
             const userGuess = numberInput.value;
-
-
-            movePointer(userGuess);
-
             let userGuessAnswer = compareNumbers(userGuess, targetNumber);
 
+            movePointer(userGuess);
             gameLogic(userGuessAnswer, userGuess);
 
             guesses--;
 
-            switch (guesses) {
-                case 3:
-                    setTextContent('guesses', `Oh no oh man you only have ${guesses} guesses left now!!!`);
-                    break;
-                case 2:
-                    setTextContent('guesses', `Ohhhhh god you only have ${guesses} guesses remaining! you can do it!!!!`);
-                    break;
-                case 1:
-                    setTextContent('guesses', `FFFFFfffhghghghg only ${guesses} guess left!!! ITS NOW OR NEVER`);
-                    break;
-                case 0:
-                    setTextContent('guesses', `OH NO YOU LOST. THE ANSWER WAS ${targetNumber} LMAO RIP`);
-                    break;
-
-            }
+            displayMessage();
 
             if (guesses === 0) {
                 stopGame();
@@ -56,6 +38,23 @@ let game = true;
         }
     });
 });
+
+function displayMessage() {
+    switch (guesses) {
+        case 3:
+            setTextContent('guesses', `Oh no oh man you only have ${guesses} guesses left now!!!`);
+            break;
+        case 2:
+            setTextContent('guesses', `Ohhhhh god you only have ${guesses} guesses remaining! you can do it!!!!`);
+            break;
+        case 1:
+            setTextContent('guesses', `FFFFFfffhghghghg only ${guesses} guess left!!! ITS NOW OR NEVER`);
+            break;
+        case 0:
+            setTextContent('guesses', `OH NO YOU LOST. THE ANSWER WAS ${targetNumber} LMAO RIP`);
+            break;
+    }
+}
 
 function movePointer(num) {
     if (num === 1) {
