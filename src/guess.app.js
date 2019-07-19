@@ -16,11 +16,11 @@ let game = true;
 
 [...elementsArray].forEach((elem) => { //source: spread operator idea from stackoverflow.com user madox2
     elem.addEventListener('click', () => { //source: adding event listener to multiple objects idea from stackoverflow user Gmaiolo
-        if(game) {
-            if(elem.id !== 'submit') {
+        if (game) {
+            if (elem.id !== 'submit') {
                 numberInput.value = elem.id;
             } else {
-                if(numberInput.value > 20 || numberInput.value < 1) {
+                if (numberInput.value > 20 || numberInput.value < 1) {
                     alert('Please enter a number between 1 and 20!');
                     return;
                 }
@@ -33,25 +33,11 @@ let game = true;
 
             let userGuessAnswer = compareNumbers(userGuess, targetNumber);
 
-            if(userGuessAnswer === 1) {
-                setTextContent('msg', 'Too high!');
-                elimRange(userGuess, 'up');
-
-            } else if(userGuessAnswer === -1) {
-                setTextContent('msg', 'Too low!');
-                elimRange(userGuess, 'down');
-
-            } else {
-                setTextContent('msg', 'You got it!');
-                toggleClass(userGuess, 'win', 'add');
-                setTextContent('guesses', 'WOWWY ZOWWY YOU DID IT!! GREAT JORB');
-                stopGame();
-                return;
-            }
+            gameLogic(userGuessAnswer, userGuess);
 
             guesses--;
 
-            switch(guesses) {
+            switch (guesses) {
                 case 3:
                     setTextContent('guesses', `Oh no oh man you only have ${guesses} guesses left now!!!`);
                     break;
@@ -67,7 +53,7 @@ let game = true;
 
             }
 
-            if(guesses === 0) {
+            if (guesses === 0) {
                 stopGame();
 
             }
@@ -76,7 +62,7 @@ let game = true;
 });
 
 function movePointer(num) {
-    if(num === 1) {
+    if (num === 1) {
         pointer.style.margin = '0 0 0 2px';
     } else {
         pointer.style.margin = `0 0 0 ${2 + (58 * (num - 1))}px`;
@@ -84,13 +70,13 @@ function movePointer(num) {
 }
 
 function elimRange(num, dir) {
-    if(dir === 'down') {
-        for(let i = 1; i <= num; i++) {
+    if (dir === 'down') {
+        for (let i = 1; i <= num; i++) {
             toggleClass(i, 'elim', 'add');
             toggleClass(i, 'pos', 'remove');
         }
     } else {
-        for(let j = num; j <= 20; j++) {
+        for (let j = num; j <= 20; j++) {
             toggleClass(j, 'elim', 'add');
             toggleClass(j, 'pos', 'remove');
         }
@@ -103,7 +89,7 @@ function setTextContent(id, string) {
 
 function toggleClass(id, elementClass, action) {
 
-    if(action === 'add') {
+    if (action === 'add') {
         document.getElementById(id).classList.add(elementClass);
     } else {
         document.getElementById(id).classList.remove(elementClass);
@@ -118,4 +104,22 @@ function stopGame() {
     numberInput.disabled = true;
     game = false;
     guesses = 0;
+}
+
+function gameLogic(userGuessAnswer, userGuess) {
+    if (userGuessAnswer === 1) {
+        setTextContent('msg', 'Too high!');
+        elimRange(userGuess, 'up');
+
+    } else if (userGuessAnswer === -1) {
+        setTextContent('msg', 'Too low!');
+        elimRange(userGuess, 'down');
+
+    } else {
+        setTextContent('msg', 'You got it!');
+        toggleClass(userGuess, 'win', 'add');
+        setTextContent('guesses', 'WOWWY ZOWWY YOU DID IT!! GREAT JORB');
+        stopGame();
+        return;
+    }
 }
