@@ -21,10 +21,23 @@
                 <h1>
                     Rock, Paper, Scissors
                 </h1>
-                <p>Click on a picture below to play the game!</p>
-
+                
             </header>
+            <section id="betting-game">
+                <div class="left">
+                <p>
+                    Place your bet!
+                </p>
+                <input id="money-wagered" type="number" value="1">
+                <button id="bet-button">Bet!</button>
+                </div>
+                <div class="right">
+                <img class="money" src="./assets/money.png" alt="picture of money">
+                <span id="available-funds"></span>
+                </div>
+            </section>
             <section class="row">
+                    <p>Click on a picture below to play the game!</p>
                 <label>
                     <input type="radio" name="pick" value="rock">
                     <img src='assets/rock.png'>

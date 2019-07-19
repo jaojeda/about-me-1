@@ -28,6 +28,10 @@ img {
 }
 
 input {
+    width: 50px;
+}
+
+input[type="radio"] {
     display: none;
 }
 
@@ -64,4 +68,22 @@ nav {
     height: 50px;
     margin: 0 0 20px 0;
     width: 100%;
+}
+
+.money {
+    width: 100px;
+    height: auto;
+}
+
+.left {
+    width: 50%;
+    float: left;
+    text-align: right;
+
+}
+
+.right {
+    width: 50%;
+    float: right;
+    text-align: left;
 }
