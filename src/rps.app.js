@@ -13,7 +13,7 @@ let win = 0;
 let loss = 0;
 let tie = 0;
 
-const inputArray = [...document.querySelectorAll('input')];
+const inputArray = [...document.querySelectorAll('label input')];
 
 inputArray.forEach((elem) => {
     elem.addEventListener('click', () => {
