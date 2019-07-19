@@ -17,14 +17,10 @@ let game = true;
 [...elementsArray].forEach((elem) => { //source: spread operator idea from stackoverflow.com user madox2
     elem.addEventListener('click', () => { //source: adding event listener to multiple objects idea from stackoverflow user Gmaiolo
         if (game) {
-            if (elem.id !== 'submit') {
-                numberInput.value = elem.id;
-            } else {
-                if (numberInput.value > 20 || numberInput.value < 1) {
-                    alert('Please enter a number between 1 and 20!');
-                    return;
-                }
-            }
+            
+            if(setNumber(elem, numberInput) === 'stop') {
+                return;
+            };
 
             const userGuess = numberInput.value;
 
@@ -121,5 +117,16 @@ function gameLogic(userGuessAnswer, userGuess) {
         setTextContent('guesses', 'WOWWY ZOWWY YOU DID IT!! GREAT JORB');
         stopGame();
         return;
+    }
+}
+
+function setNumber(elem, numberInput) {
+    if (elem.id !== 'submit') {
+        numberInput.value = elem.id;
+    } else {
+        if (numberInput.value > 20 || numberInput.value < 1) {
+            alert('Please enter a number between 1 and 20!');
+            return 'stop';
+        }
     }
 }
